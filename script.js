@@ -9,11 +9,20 @@ let animationFrameId;
 let entities = [];
 let mouse = { x: null, y: null };
 
+let lastWidth = window.innerWidth;
+let lastHeight = window.innerHeight;
+
 // Initialize Canvas Size
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initEntities();
+    // On mobile, scrolling hides/shows the address bar triggering resize. 
+    // We only want to rebuild the canvas if the dimensions change significantly (e.g. orientation change).
+    if (Math.abs(window.innerWidth - lastWidth) > 50 || Math.abs(window.innerHeight - lastHeight) > 100 || entities.length === 0) {
+        lastWidth = window.innerWidth;
+        lastHeight = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        initEntities();
+    }
 }
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('mousemove', (e) => {
