@@ -88,7 +88,7 @@ body {
     text-align: center;
     z-index: 1;
     position: relative;
-    padding: 2rem;
+    padding: 2rem 2rem 2.5rem 2rem; /* Slightly larger bottom padding for visual balance */
     width: 90%;
     max-width: 600px;
     box-sizing: border-box;
@@ -124,7 +124,8 @@ body.theme-pigeon .container {
     /* Fluid typography ensures it never overflows on small screens */
     font-size: clamp(2.5rem, 10vw, 5rem);
     font-weight: 800;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     letter-spacing: -0.04em;
     line-height: 1.1;
     word-wrap: break-word;
